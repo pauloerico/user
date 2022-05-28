@@ -1,4 +1,14 @@
 services:
+  user-api:
+    container_name: user-api
+    image: user-api:latest
+    networks:
+      - shopping-network
+    ports:
+      - "8080:8080"
+    depends_on:
+      - mongo-container;
+
   mongo-container:
     container_name: mongo_container
     image: mongo
@@ -10,30 +20,30 @@ services:
     networks:
       - shopping-network
 
-#  prometheus-compose:
-#    container_name: prometheus
-#    image: prom/prometheus
-#    ports:
-#      - "9090:9090"
-#    volumes:
-#      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
-#      - prometheus_data:/prometheus
-#    network_mode: host
-#
-#  grafana:
-#    image: grafana/grafana:latest
-#    volumes:
-#      - ./grafana/provisioning:/etc/grafana/provisioning
-#      - grafana_data:/var/lib/grafana
-#    ports:
-#      - 3000:3000
-#    networks:
-#      - shopping-network
+  prometheus-compose:
+    container_name: prometheus
+    image: prom/prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./config/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    network_mode: host
+
+  grafana:
+    image: grafana/grafana:latest
+    volumes:
+      - ./grafana/provisioning:/etc/grafana/provisioning
+      - grafana_data:/var/lib/grafana
+    ports:
+      - 3000:3000
+    networks:
+      - shopping-network
 
 volumes:
-  mongodata: { }
-  prometheus_data: { }
-  grafana_data: { }
+  mongodata:
+  prometheus_data:
+  grafana_data:
 
 networks:
   shopping-network:

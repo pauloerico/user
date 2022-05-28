@@ -6,9 +6,10 @@ spring:
     name: user-api
   data:
     mongodb:
-      host: localhost
-      port: 27017
-      database: user_db
+      uri: mongodb://shopping-network:27017/users
+#      host: user-api
+#      port: 27017
+#      database: user_db
 
 management:
   endpoints:
