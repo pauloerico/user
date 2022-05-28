@@ -19,12 +19,12 @@ public class UserController {
     }
 
     @GetMapping("/{uuid}")
-    public UserResponse findUserByUuid(@PathVariable String uuid){
+    public UserResponse findUserByUuid(@PathVariable String uuid) {
         return userService.findUserByUuid(uuid);
     }
 
     @DeleteMapping("/{uuid}")
-    public void deleteUserByUuid(@PathVariable String uuid){
+    public void deleteUserByUuid(@PathVariable String uuid) {
         userService.deleteUserByUuid(uuid);
     }
 }
