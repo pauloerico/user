@@ -4,6 +4,6 @@ spring:
       host: localhost
       port: 27017
       database: admin
-      username: samuelnfavero@gmail.com
-      password: mongo123
+      username: 811@gmail.com
+      password: mongo
       authentication-database: admin
