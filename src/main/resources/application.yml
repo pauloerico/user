@@ -1,9 +1,30 @@
+server:
+  port: 8080
+
 spring:
+  application:
+    name: user-api
   data:
     mongodb:
       host: localhost
       port: 27017
-      database: admin
-      username: 811@gmail.com
-      password: mongo
-      authentication-database: admin
+      database: user_db
+
+management:
+  endpoints:
+    health:
+      show-details: always
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+    tags:
+      application: ${spring:application:name}
+  endpoint:
+    metrics:
+      enabled: false
+    prometheus:
+      enabled: true

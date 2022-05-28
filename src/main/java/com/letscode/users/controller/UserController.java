@@ -6,6 +6,8 @@ import com.letscode.users.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/users")
 @RequiredArgsConstructor
@@ -14,7 +16,7 @@ public class UserController {
     private final UserService userService;
 
     @PostMapping
-    public UserResponse createUser(UserRequest userRequest) {
+    public UserResponse createUser(@RequestBody @Valid UserRequest userRequest) {
         return userService.createUser(userRequest);
     }
 

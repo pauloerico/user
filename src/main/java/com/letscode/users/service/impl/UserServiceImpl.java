@@ -16,7 +16,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserResponse createUser(UserRequest userRequest) {
-        return null;
+        User user = new User(userRequest);
+        User savedUser = userRepository.save(user);
+        return new UserResponse(savedUser);
     }
 
     @Override
@@ -28,7 +30,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserByUuid(String uuid) {
-        
-        userRepository.delete();
+        User savedUser = userRepository.findByUuid(uuid);
+        userRepository.delete(savedUser);
     }
 }

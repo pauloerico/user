@@ -12,6 +12,7 @@ public class UserResponse {
     private String cpf;
     private String password;
     private String email;
+    private String adress;
     private String uuid;
 
     public UserResponse(User user) {
@@ -19,7 +20,7 @@ public class UserResponse {
         this.cpf = user.getCpf();
         this.password = user.getPassword();
         this.email = user.getEmail();
+        this.adress = user.getAdress();
         this.uuid = user.getUuid();
     }
-
 }

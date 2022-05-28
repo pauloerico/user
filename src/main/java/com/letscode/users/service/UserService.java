@@ -6,7 +6,6 @@ import com.letscode.users.DTO.UserResponse;
 public interface UserService {
     UserResponse createUser(UserRequest userRequest);
 
-
     UserResponse findUserByUuid(String uuid);
 
     void deleteUserByUuid(String uuid);
