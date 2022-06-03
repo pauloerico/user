@@ -1,19 +1,23 @@
 services:
-  user-api:
-    container_name: user-api
-    image: user-api:latest
-    networks:
-      - shopping-network
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mongo-container;
+
+  #  user-api:
+  #    build:
+  #      context: .
+  #      dockerfile: Dockerfile
+  #
+  #    container_name: user-api
+  #    networks:
+  #      - shopping-network
+  #    ports:
+  #      - "8080:8080"
+  #    depends_on:
+  #      - mongo-container;
 
   mongo-container:
     container_name: mongo_container
     image: mongo
     ports:
-      - "27017:27017"
+      - 27017
     volumes:
       - mongodata:/data/db
     restart: unless-stopped
